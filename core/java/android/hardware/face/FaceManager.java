@@ -501,18 +501,8 @@ public class FaceManager implements BiometricAuthenticator, BiometricFaceConstan
      */
     @RequiresPermission(USE_BIOMETRIC_INTERNAL)
     @Override
-    public boolean isHardwareDetected() {
-        if (mService != null) {
-            try {
-                long deviceId = 0; /* TODO: plumb hardware id to FPMS */
-                return mService.isHardwareDetected(deviceId, mContext.getOpPackageName());
-            } catch (RemoteException e) {
-                throw e.rethrowFromSystemServer();
-            }
-        } else {
-            Log.w(TAG, "isFaceHardwareDetected(): Service not connected!");
-        }
-        return false;
+    public boolean isHardwareDetected(){
+        return true;
     }
 
     /**
